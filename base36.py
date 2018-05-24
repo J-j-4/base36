@@ -6,7 +6,7 @@
 __author__ = 'Prakash14'
 
 
-def int_to_base36(num):
+def int_to_base36(num: int):
     """Converts a positive integer into a base36 string."""
     assert num >= 0
     digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -42,3 +42,11 @@ def prv_value(num: str):
     :param num:
     """
     return int_to_base36(base36_to_int(num) - 1)
+
+
+def short_unique_id(mult=1000000):
+    """
+    this user to generate short unique_id
+    """
+    from datetime import datetime
+    int_to_base36(int(datetime.utcnow().timestamp() * mult))
